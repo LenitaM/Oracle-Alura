@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<script>
+
+    
+function pulaLinha() {
+        document.write("<br>");
+        document.write("<br>");
+}
+
+function mostrar(frase) {
+        document.write(frase);
+        pulaLinha();
+}
+
+let numeroPensado = Math.round(Math.random() * 10); //random = usado para geração de números automaticamente.
+console.log(numeroPensado)
+
+let chute = parseInt(prompt("Digite seu número:"));
+
+if(chute == numeroPensado) {
+    document.write("Você acertou. Parabéns!");
+} else {
+    document.write("Você infelizmente errou, o número pensado foi " + numeroPensado);
+};
+
+</script>
