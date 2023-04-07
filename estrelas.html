@@ -1,0 +1,29 @@
+<meta charset="UTF = 8">
+
+<!-- WHILE / FOR
+
+Para que as casas decimais sejam mantidas, usamos o método parseFloat():
+
+var numero = parseFloat("12.13");
+ -->
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+        
+    }
+
+    function mostrar(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    for(let linha = 1; linha <= 3; linha++) {
+
+       for(let coluna = 1; coluna <= 10; coluna++) {
+        document.write("*");
+       }
+
+       pulaLinha(); //para quando fazer a linha ir para outro linha
+    }
+    
+</script>

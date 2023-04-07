@@ -1,3 +1,5 @@
+<!-- IF / ELSE IF / ELSE -->
+
 <meta charset="UTF-8">
 
 <script>
@@ -16,12 +18,28 @@ function mostrar(frase) {
 let numeroPensado = Math.round(Math.random() * 10); //random = usado para geração de números automaticamente.
 console.log(numeroPensado)
 
-let chute = parseInt(prompt("Digite seu número:"));
+//Precisa repetir daqui para baixo:
+
+let tentativas = 1;
+
+
+/* let numeroPensado = 4 p/ teste */
+
+
+while(tentativas <= 3) {
+    let chute = parseInt(prompt("Digite seu número:"));
 
 if(chute == numeroPensado) {
-    document.write("Você acertou. Parabéns!");
+
+   mostrar("Você acertou. O número pensado era " + numeroPensado);
+
+   break; // ele quebra o loop
+
 } else {
-    document.write("Você infelizmente errou, o número pensado foi " + numeroPensado);
+    mostrar("Você errou.");
+    };
+
+    tentativas++
 };
 
 </script>
