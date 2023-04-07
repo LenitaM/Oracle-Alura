@@ -1,4 +1,9 @@
-<!-- QUERYSELECTOR -->
+<!-- QUERYSELECTOR / 
+    
+    
+    ARRAY = tipo de dado chamado array. Ele permite que uma variável possua vários valores. Aceitando boolean, string, number.
+
+-->
 
 <meta charset="UFT =8" />
 
@@ -7,7 +12,53 @@
 <button>Compare o meu segredo</button>
 
 <script>
-  let segredo = Math.round(Math.random() * 10); //gerar números automaticamentes
+  /*   let segredos = [5, 6, 7, 2, 10]; // 1ª posição do array sempre 0
+  //acessar cada elemento do array individualmente só segredos[numero da posição que vc quer] */
+
+  function sorteia() {
+    // 1ª função escolhe os números aleatoriamente
+
+    return Math.round(Math.random() * 10);
+  }
+
+  function sorteiaNumeros(quantidade) {
+    // 2º recebe a quantidade de números que quero sortear
+
+    let segredosLimitado = [];
+    let numero = 1;
+
+    while (numero <= quantidade) {
+
+      let numeroAleatorio = sorteia();
+      let achou = false;
+
+      if (numeroAleatorio !== 0) { //para os números escolhidos n ser 0
+
+        for (let posicao = 0; posicao < segredosLimitado.length; posicao++) {
+
+          if (segredosLimitado[posicao] == numeroAleatorio) {
+
+            achou = true;
+
+            break;
+          }
+        }
+
+        if (achou == false) {
+          segredosLimitado.push(numeroAleatorio);
+
+          numero++;
+        }
+      }
+    }
+
+    return segredosLimitado;
+
+  }
+
+  let segredos = sorteiaNumeros(3); // a segunda função devolve a lista de números secretos escolhidos
+
+  console.log(segredos); //teste
 
   let input = document.querySelector('input'); //pega elementos do HTML para usar em JS e o "a tag que vc quer pegar";
   input.focus();
@@ -15,12 +66,26 @@
   function verifica() {
     //para o if n ser executado enquanto a página carregar, vai ser executado apenas quando digitar o número
 
-    if (input.value == segredo) {
-      // .value = para saber o valor
+    let achado = false;
 
-      alert('VOCÊ ACERTOU!!!');
-    } else {
-      alert('VOCÊ ERROU!!!');
+    for (let posicao = 0; posicao < segredos.length; posicao++) {
+      //length = retorna a quantidade de arrays que ele tem, bom caso adicionem elementos
+      // 4 = elementos do array 0 1 2 3
+
+      if (input.value == segredos[posicao]) {
+        // .value = para saber o valor
+
+        alert('VOCÊ ACERTOU!!!');
+
+        achado = true;
+
+        break;
+
+      }
+    }
+
+    if (achado == false) {
+      alert = 'VOCÊ ERROU';
     }
 
     input.value = ''; //para limpar a barra
@@ -30,4 +95,5 @@
   let button = document.querySelector('button');
 
   button.onclick = verifica; //no cliclar quer que "verifica" sem o parentese pq se n vai excecutar a função verefica()
+
 </script>
