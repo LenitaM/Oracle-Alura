@@ -2,18 +2,14 @@
 
 <meta charset="UTF-8">
 
+<input/>
+
+<button>Compare o meu segredo</button>
+
 <script>
 
-    
-function pulaLinha() {
-        document.write("<br>");
-        document.write("<br>");
-}
+let input = document.querySelector('input');
 
-function mostrar(frase) {
-        document.write(frase);
-        pulaLinha();
-}
 
 let numeroPensado = Math.round(Math.random() * 10); //random = usado para geração de números automaticamente.
 console.log(numeroPensado)
@@ -25,8 +21,9 @@ let tentativas = 1;
 
 /* let numeroPensado = 4 p/ teste */
 
+function verifica() {
 
-while(tentativas <= 3) {
+    while(tentativas <= 3) {
     let chute = parseInt(prompt("Digite seu número:"));
 
 if(chute == numeroPensado) {
@@ -40,6 +37,14 @@ if(chute == numeroPensado) {
     };
 
     tentativas++
+
+    input.value = "";
 };
+
+}
+
+let button = document.querySelector("button");
+
+button.onclick = verifica;
 
 </script>
