@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+
+<script>
+
+    function pulaLinha() {
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function mostrar(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function calculaImc(peso, altura) { //deve ser na ordem que vc quer que calcule
+
+            let imc = peso / (altura * altura);
+            return imc; 
+            //ou return  peso / (altura * altura);
+
+}
+
+
+    let pesoFlavio = 73;
+    let alturaFlavio = 1.71;
+
+    let imcFlavio = calculaImc(pesoFlavio, alturaFlavio); //(valor do parametro) // pode passar as variáveis 
+
+
+    let pesoAmigo = 68;
+    let alturaAmigo = 1.72;
+
+    let imcAmigo = calculaImc(68, 1.72); //pode passar os valores
+
+    mostrar(imcFlavio);
+    mostrar(imcAmigo);
+
+    let totalImc = imcFlavio + imcAmigo;
+
+    document.write("A soma dos IMC's é " + totalImc);
+
+
+</script>
